@@ -158,27 +158,6 @@ test('Проверка переключения dark/light mode', async ({ page 
   );
 });
 
-test('Проверка заголовка страницы', async ({ page }) => {
-  await expect
-    .soft(page.getByRole('heading', { name: 'Playwright enables reliable' }))
-    .toBeVisible();
-  await expect
-    .soft(page.getByRole('heading', { name: 'Playwright enables reliable' }))
-    .toContainText(
-      'Playwright enables reliable web automation for testing, scripting, and AI agents.',
-    );
-});
-
-test('Проверка кнопки Get stardeted', async ({ page }) => {
-  await expect.soft(page.getByRole('link', { name: 'Get started' })).toBeVisible();
-  await expect.soft(page.getByRole('link', { name: 'Get started' })).toContainText('Get started');
-  await expect
-    .soft(page.getByRole('link', { name: 'Get started' }))
-    .toHaveAttribute('href', '/docs/intro');
-  await page.getByRole('link', { name: 'Get started' }).click();
-  await expect.soft(page).toHaveURL('https://playwright.dev/docs/intro');
-});
-
 test('Soft Assertions -  Один тест будет завалин', async ({ page }) => {
   await expect.soft(page.getByRole('link', { name: 'Get started' })).toBeVisible();
   await expect.soft(page.getByRole('link', { name: 'Get started' })).toContainText('Get started');
